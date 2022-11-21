@@ -45,6 +45,15 @@ def menuButtons():
     buttonFour=pygame.draw.rect(win,fourthColor,[530,200,100,100]) 
     buttonFive=pygame.draw.rect(win,fifthColor,[640,200,100,100])
 
+def menuDescription():
+    descriptionFont=pygame.font.Font("assets/GOUDOSB.TTF",30)
+
+    descriptionText=descriptionFont.render("bands available",True,white)
+    descriptionTextRect=descriptionText.get_rect()
+    descriptionTextRect.left=485
+    descriptionTextRect.top=305
+    win.blit(descriptionText,descriptionTextRect)
+
 def menu():
     mouse=pygame.mouse.get_pos()
     win.fill((214,206,195))
@@ -56,6 +65,7 @@ def menu():
     win.blit(snowmanImg,(30,0))
 
     menuButtons()
+    menuDescription()
 
 while running:
     for event in pygame.event.get():

@@ -2,8 +2,9 @@ import pygame
 
 class displays:
     def __init__(self,win):
+        pygame.init()
         self.win=win
-        self,win.fill((214,206,195))
+        self.win.fill((214,206,195))
         pygame.display.set_icon(pygame.image.load("assets/icon.png"))
 
         self.titleAndButtonFont=pygame.font.Font("assets/GOUDOSB.TTF",60)
@@ -11,6 +12,24 @@ class displays:
 
         self.white=(255,255,255)
         self.mouse=pygame.mouse.get_pos()
+
+    def threeBandsDisplay(self):
+        exit=False
+        while exit==False:
+            self.win.fill((0,0,0))
+            pygame.display.update() 
+    
+    def fourBandsDisplay(self):
+        exit=False
+        while exit==False:
+            self.win.fill((108,108,108))
+            pygame.display.update()
+    
+    def fiveBandsDisplay(self):
+        exit=False
+        while exit==False:
+            self.win.fill((255,255,255))
+            pygame.display.update()
 
     def menu(self):
         snowmanImg=pygame.image.load("assets/snowman.png")
@@ -36,14 +55,29 @@ class displays:
         if self.mouse[0]>420 and self.mouse[0]<520 and self.mouse[1]>200 and self.mouse[1]<300: # if mouse hovers in boundaries of first button's rect
             thirdButtonColor=(190,180,171)
             thirdTextColor=self.white
+            for event in pygame.event.get():
+                if event.type==pygame.MOUSEBUTTONUP:
+                    game=displays(self.win)
+                    game.threeBandsDisplay()
+                    break
 
         elif self.mouse[0]>530 and self.mouse[0]<630 and self.mouse[1]>200 and self.mouse[1]<300: # if mouse hovers in boundaries of ... rect
             fourthButtonColor=(190,180,171)
             fourthTextColor=self.white
+            for event in pygame.event.get():
+                if event.type==pygame.MOUSEBUTTONUP:
+                    game=displays(self.win)
+                    game.fourBandsDisplay()
+                    break
         
         elif self.mouse[0]>640 and self.mouse[0]<740 and self.mouse[1]>200 and self.mouse[1]<300: # if mouse hovers in boundaries of ... rect
             fifthButtonColor=(190,180,171)
             fifthTextColor=self.white
+            for event in pygame.event.get():
+                if event.type==pygame.MOUSEBUTTONUP:
+                    game=displays(self.win)
+                    game.fiveBandsDisplay()
+                    break
 
         buttonThree=pygame.draw.rect(self.win,thirdButtonColor,[420,200,100,100])
         buttonFour=pygame.draw.rect(self.win,fourthButtonColor,[530,200,100,100]) 

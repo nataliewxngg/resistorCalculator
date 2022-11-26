@@ -9,11 +9,11 @@ running=True
 
 # main program
 while running:
-    for event in pygame.event.get(): # goes through events from module
-        if event.type==pygame.QUIT: # if user closes win
-            running=False # program stops
+    for event in pygame.event.get(): 
+        if event.type==pygame.QUIT: 
+            running=False
 
     game=displays(pygame.display.set_mode((800,400)))
     game.menu()
-    pygame.display.update() # finally updates the win to show all the .blit(ing)
+    pygame.display.update() 
     

@@ -1,7 +1,5 @@
 # not done, i just noticed there's more %s to the fourth band colors, will update fourthBandColors soon 
 
-# HIIIIIIII
-
 print("Welcome to Resistor Calculator!\n")
 bands = int(input("How many bands of colors are on your resistor? "))    
 

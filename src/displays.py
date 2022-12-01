@@ -131,3 +131,6 @@ class displays:
         if mouse[0]>350 and mouse[0]<450 and mouse[1]>300 and mouse[1]<350: 
             global windowType
             windowType = 0
+
+
+#ppeeepeeepoopoo

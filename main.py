@@ -99,7 +99,7 @@ def chooseColour(): #check if a colour is chosen, or if the cancel button is pre
 while running:
     for event in pygame.event.get(): # goes through events from module
         if event.type==pygame.QUIT: # if user closes win
-            running=False # program stops
+            running=False # program stop
         if event.type == pygame.MOUSEBUTTONDOWN:
             if windowType == 0: 
                 chooseBand()

@@ -122,7 +122,7 @@ class displays:
         if mouse[0]>420 and mouse[0]<520 and mouse[1]>200 and mouse[1]<300: chosen = 3
         elif mouse[0]>530 and mouse[0]<630 and mouse[1]>200 and mouse[1]<300: chosen = 4
         elif mouse[0]>640 and mouse[0]<740 and mouse[1]>200 and mouse[1]<300: chosen = 5
-        if chosen == 0: return # if the click was not on any squares
+        if chosen == 0: return # if the click was not on any squaresd
         global windowType
         windowType = 1
 

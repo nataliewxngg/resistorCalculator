@@ -1,6 +1,7 @@
 # from src.backEnd import resistorCalculator 
 import pygame
 from src.menu import menu
+from src.menu import selectMenu
 
 # initiation
 pygame.init() # initializes all pygame modules
@@ -13,14 +14,6 @@ white=(255,255,255)
 # SDLKFJASDLKFJWEPOAIFJSDOIFJASDP CODE
 chosen = 0 # which square was clicked?
 windowType = 0 # 0 means the main menu is open, 1 means selecting colour menu is open
-
-def selectMenu(): # changes the menu to selecting a colour
-    win.fill(white)
-    cancelColour = (100, 100, 100)
-    mouse=pygame.mouse.get_pos()
-    if mouse[0]>350 and mouse[0]<450 and mouse[1]>300 and mouse[1]<350: 
-        cancelColour=(0,0,0)
-    cancelButton=pygame.draw.rect(win,cancelColour,[350,300,100,50])
 
 def chooseBand() : # check if one of the squares is clicked on
     global chosen
@@ -56,5 +49,5 @@ while running:
     if windowType == 0: 
         menu(win)
     elif windowType == 1: 
-        selectMenu()
+        selectMenu(win)
     pygame.display.update() 

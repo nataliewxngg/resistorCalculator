@@ -10,9 +10,7 @@ win=pygame.display.set_mode((800,400))
 running=True
 mouse=pygame.mouse.get_pos()
 white=(255,255,255)
-
-# SDLKFJASDLKFJWEPOAIFJSDOIFJASDP CODE
-chosen = 0 # which square was clicked?
+cancelColor=(100,100,100)
 windowType = 0 # 0 means the main menu is open, 1 means selecting colour menu is open
 
 def chooseBand() : # check if one of the squares is clicked on
@@ -49,5 +47,6 @@ while running:
     if windowType == 0: 
         menu(win)
     elif windowType == 1: 
-        selectMenu(win)
+        selectMenu(win,white,cancelColor)
     pygame.display.update() 
+    

@@ -1,7 +1,7 @@
 # from src.backEnd import resistorCalculator 
 import pygame
-from src.menu import menu
-from src.menu import selectMenu
+from displays import menu
+from displays import selectMenu
 
 # initiation
 pygame.init() # initializes all pygame modules
@@ -13,7 +13,7 @@ white=(255,255,255)
 cancelColor=(100,100,100)
 windowType = 0 # 0 means the main menu is open, 1 means selecting colour menu is open
 
-def chooseBand() : # check if one of the squares is clicked on
+def chooseBandsNum() : # check if one of the squares is clicked on
     global chosen
     chosen = 0
     mouse=pygame.mouse.get_pos()
@@ -35,18 +35,30 @@ def chooseColour(): #check if a colour is chosen, or if the cancel button is pre
 
 # main program
 while running:
-    for event in pygame.event.get(): # goes through events from module
-        if event.type==pygame.QUIT: # if user closes win
-            running=False # program stop
+    for event in pygame.event.get(): 
+        if event.type==pygame.QUIT: 
+            running=False 
         if event.type == pygame.MOUSEBUTTONDOWN:
-            if windowType == 0: 
-                chooseBand()
-            elif windowType == 1: 
+            if windowType == 0: # if in menu, check which 'bands' button chosen
+                chooseBandsNum()
+            elif windowType == 1: # if in 'bands' page, check if 'return to menu' button chosen
                 chooseColour()
 
     if windowType == 0: 
         menu(win)
-    elif windowType == 1: 
-        selectMenu(win,white,cancelColor)
+
+    elif windowType == 1:
+        if chosen == 3:
+            print("3") 
+            selectMenu(win,white,cancelColor)
+
+        elif chosen == 4:
+            print("4")
+            selectMenu(win,white,cancelColor)
+
+        else:
+            print("5")
+            selectMenu(win,white,cancelColor)
+
     pygame.display.update() 
     

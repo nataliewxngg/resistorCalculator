@@ -1,4 +1,4 @@
-from src.menu import menu
+from displays import menu
 import pygame
 
 running=True

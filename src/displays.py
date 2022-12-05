@@ -75,13 +75,14 @@ def menu(win):
 
 def cancelButton(win,cancelColour):
     mouse=pygame.mouse.get_pos()
-    if mouse[0]>350 and mouse[0]<450 and mouse[1]>300 and mouse[1]<350: 
+
+    if mouse[0]>350 and mouse[0]<450 and mouse[1]>300 and mouse[1]<350: # if mouse hovers on cancel button, change color
         cancelColour = (0,0,0)
-    cancelButton=pygame.draw.rect(win,cancelColour,[350,300,100,50])
+    cancelButton=pygame.draw.rect(win,cancelColour,[20,20,150,50])
 
 # replace with separate pages for different bands
-def thirdBand(win,white,cancelColour):
-    win.fill(white)
+def thirdBand(win,cancelColour):
+    win.fill((214,206,195))
     cancelButton(win,cancelColour)
 
-
+    

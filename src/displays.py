@@ -73,12 +73,15 @@ def menu(win):
     buttons(win,pygame.font.Font("assets/GOUDOSB.TTF",60),(255,255,255))
     description(win,pygame.font.Font("assets/GOUDOSB.TTF",30),(255,255,255))
 
-# replace with separate pages for different bands
-def selectMenu(win,white,cancelColor): 
-    win.fill(white)
+def cancelButton(win,cancelColour):
     mouse=pygame.mouse.get_pos()
     if mouse[0]>350 and mouse[0]<450 and mouse[1]>300 and mouse[1]<350: 
-        cancelColour=(0,0,0)
-    cancelButton=pygame.draw.rect(win,cancelColor,[350,300,100,50])
+        cancelColour = (0,0,0)
+    cancelButton=pygame.draw.rect(win,cancelColour,[350,300,100,50])
+
+# replace with separate pages for different bands
+def thirdBand(win,white,cancelColour):
+    win.fill(white)
+    cancelButton(win,cancelColour)
 
 

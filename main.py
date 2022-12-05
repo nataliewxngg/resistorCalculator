@@ -1,7 +1,6 @@
 # from src.backEnd import resistorCalculator 
 import pygame
-from displays import menu
-from displays import selectMenu
+from src.displays import*
 
 # initiation
 pygame.init() # initializes all pygame modules
@@ -10,7 +9,7 @@ win=pygame.display.set_mode((800,400))
 running=True
 mouse=pygame.mouse.get_pos()
 white=(255,255,255)
-cancelColor=(100,100,100)
+cancelColour=(100,100,100)
 windowType = 0 # 0 means the main menu is open, 1 means selecting colour menu is open
 
 def chooseBandsNum() : # check if one of the squares is clicked on
@@ -49,16 +48,17 @@ while running:
 
     elif windowType == 1:
         if chosen == 3:
-            print("3") 
-            selectMenu(win,white,cancelColor)
+            thirdBand(win,white,cancelColour)
 
         elif chosen == 4:
-            print("4")
-            selectMenu(win,white,cancelColor)
+            # print("4")
+            # selectMenu(win,white,cancelColor)
+            break
 
         else:
-            print("5")
-            selectMenu(win,white,cancelColor)
+            # print("5")
+            # selectMenu(win,white,cancelColor)
+            break
 
     pygame.display.update() 
     

@@ -10,7 +10,6 @@ pygame.display.set_caption('Resistor Calculator'.upper())
 running=True
 mouse=pygame.mouse.get_pos()
 white=(255,255,255)
-cancelColour=(100,100,100)
 windowType = 0 # 0 means the main menu is open, 1 means selecting colour menu is open
 
 def chooseBandsNum() : # check if one of the squares is clicked on
@@ -29,7 +28,7 @@ def chooseBandsNum() : # check if one of the squares is clicked on
 
 def returnToMenu(): #check if a colour is chosen, or if the cancel button is pressed
     mouse=pygame.mouse.get_pos()
-    if mouse[0]>350 and mouse[0]<450 and mouse[1]>300 and mouse[1]<350: 
+    if mouse[0]>20 and mouse[0]<170 and mouse[1]>20 and mouse[1]<60: 
         global windowType
         windowType = 0
 
@@ -49,7 +48,7 @@ while running:
 
     elif windowType == 1:
         if chosen == 3:
-            thirdBand(win,cancelColour)
+            thirdBand(win,white)
 
         elif chosen == 4:
             # print("4")

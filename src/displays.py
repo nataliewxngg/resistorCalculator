@@ -73,16 +73,28 @@ def menu(win):
     buttons(win,pygame.font.Font("assets/GOUDOSB.TTF",60),(255,255,255))
     description(win,pygame.font.Font("assets/GOUDOSB.TTF",30),(255,255,255))
 
-def cancelButton(win,cancelColour):
+def cancelButton(win,cancelColour,cancelFont):
     mouse=pygame.mouse.get_pos()
+    # cancelButtonColour=(0,0,0)
 
-    if mouse[0]>350 and mouse[0]<450 and mouse[1]>300 and mouse[1]<350: # if mouse hovers on cancel button, change color
-        cancelColour = (0,0,0)
-    cancelButton=pygame.draw.rect(win,cancelColour,[20,20,150,50])
+    if mouse[0]>20 and mouse[0]<170 and mouse[1]>20 and mouse[1]<60: # if mouse hovers on cancel button, change color
+        cancelColour = (190,180,171)
+
+    cancelButton = pygame.draw.rect(win,(214,206,195),[20,20,150,40])
+
+    cancelText = cancelFont.render("RETURN",True,cancelColour)
+    win.blit(cancelText,cancelButton)
+
 
 # replace with separate pages for different bands
 def thirdBand(win,cancelColour):
     win.fill((214,206,195))
-    cancelButton(win,cancelColour)
+    cancelButton(win,cancelColour,pygame.font.Font("assets/GOUDOSB.TTF",35))
 
-    
+def fourthBand(win,cancelColour):
+    win.fill((214,206,195))
+    cancelButton(win,cancelColour,pygame.font.Font("assets/GOUDOSB.TTF",35))
+
+def fifthBand(win,cancelColour):
+    win.fill((214,206,195))
+    cancelButton(win,cancelColour,pygame.font.Font("assets/GOUDOSB.TTF",35))

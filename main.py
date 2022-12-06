@@ -1,19 +1,18 @@
 # from src.backEnd import resistorCalculator 
 import pygame
-from src.menu import menu
-from src.menu import selectMenu
+from src.displays import*
 
 # initiation
 pygame.init() # initializes all pygame modules
 win=pygame.display.set_mode((800,400))
+pygame.display.set_caption('Resistor Calculator'.upper())
 
 running=True
 mouse=pygame.mouse.get_pos()
 white=(255,255,255)
-cancelColor=(100,100,100)
 windowType = 0 # 0 means the main menu is open, 1 means selecting colour menu is open
 
-def chooseBand() : # check if one of the squares is clicked on
+def chooseBandsNum() : # check if one of the squares is clicked on
     global chosen
     chosen = 0
     mouse=pygame.mouse.get_pos()
@@ -27,26 +26,35 @@ def chooseBand() : # check if one of the squares is clicked on
     global windowType
     windowType = 1
 
-def chooseColour(): #check if a colour is chosen, or if the cancel button is pressed
+def returnToMenu(): #check if a colour is chosen, or if the cancel button is pressed
     mouse=pygame.mouse.get_pos()
-    if mouse[0]>350 and mouse[0]<450 and mouse[1]>300 and mouse[1]<350: 
+    if mouse[0]>20 and mouse[0]<170 and mouse[1]>20 and mouse[1]<60: 
         global windowType
         windowType = 0
 
 # main program
 while running:
-    for event in pygame.event.get(): # goes through events from module
-        if event.type==pygame.QUIT: # if user closes win
-            running=False # program stop
+    for event in pygame.event.get(): 
+        if event.type==pygame.QUIT: 
+            running=False 
         if event.type == pygame.MOUSEBUTTONDOWN:
-            if windowType == 0: 
-                chooseBand()
-            elif windowType == 1: 
-                chooseColour()
+            if windowType == 0: # if in menu, check which 'bands' button chosen
+                chooseBandsNum()
+            elif windowType == 1: # if in 'bands' page, check if 'return to menu' button chosen
+                returnToMenu()
 
     if windowType == 0: 
         menu(win)
-    elif windowType == 1: 
-        selectMenu(win,white,cancelColor)
+
+    elif windowType == 1:
+        if chosen == 3:
+            thirdBand(win,white,white)
+
+        elif chosen == 4:
+            fourthBand(win,white)
+
+        else:
+            fifthBand(win,white)
+
     pygame.display.update() 
     

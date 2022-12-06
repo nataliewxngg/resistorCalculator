@@ -92,6 +92,7 @@ def thirdBand(win,cancelColour,white):
     win.fill((214,206,195))
     cancelButton(win,cancelColour,pygame.font.Font("assets/GOUDOSB.TTF",35))
 
+    hoverOn=0
     mouse=pygame.mouse.get_pos()
 
     # can simplify by getting mouse first, then check if button is clicked
@@ -116,6 +117,7 @@ def thirdBand(win,cancelColour,white):
                     print("selected: band 2")
                 elif hoverOn==3:
                     print("selected: band 3")
+                # fix bug for return
 
     band1 = pygame.draw.rect(win,thirdBandColor,[200,90,110,220])
     band2 = pygame.draw.rect(win,fourthBandColor,[325,90,110,220])

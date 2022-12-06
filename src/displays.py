@@ -82,7 +82,7 @@ def cancelButton(win,cancelColour,cancelFont):
 
     cancelButton = pygame.draw.rect(win,(214,206,195),[20,20,150,40])
 
-    cancelText = cancelFont.render("RETURN",True,cancelColour)
+    cancelText = cancelFont.render("return",True,cancelColour)
     win.blit(cancelText,cancelButton)
 
 
@@ -92,9 +92,34 @@ def thirdBand(win,cancelColour,white):
     win.fill((214,206,195))
     cancelButton(win,cancelColour,pygame.font.Font("assets/GOUDOSB.TTF",35))
 
-    band1 = pygame.draw.rect(win,thirdBandColor,[150,80,150,250])
-    band2 = pygame.draw.rect(win,fourthBandColor,[325,80,150,250])
-    band3 = pygame.draw.rect(win,fifthBandColor,[500,80,150,250])
+    mouse=pygame.mouse.get_pos()
+
+    # can simplify by getting mouse first, then check if button is clicked
+    if mouse[0]>200 and mouse[0]<330 and mouse[1]>90 and mouse[1]<310:
+        # thirdBandColor=((255,0,100)) # change to border
+        band1 = pygame.draw.rect(win,(255,0,100),[195,85,120,230])
+        hoverOn=1
+        
+    elif mouse[0]>325 and mouse[0]<435 and mouse[1]>90 and mouse[1]<310:
+        fourthBandColor=(255,0,100) # change to border
+        hoverOn=2
+
+    elif mouse[0]>450 and mouse[0]<560 and mouse[1]>90 and mouse[1]<310:
+        fifthBandColor=(255,0,100) # change to border
+        hoverOn=3
+
+    for event in pygame.event.get(): # causes laggy close button
+            if event.type==pygame.MOUSEBUTTONDOWN:
+                if hoverOn==1:
+                    print("selected: band 1")
+                elif hoverOn==2:
+                    print("selected: band 2")
+                elif hoverOn==3:
+                    print("selected: band 3")
+
+    band1 = pygame.draw.rect(win,thirdBandColor,[200,90,110,220])
+    band2 = pygame.draw.rect(win,fourthBandColor,[325,90,110,220])
+    band3 = pygame.draw.rect(win,fifthBandColor,[450,90,110,220])
 
 def fourthBand(win,cancelColour):
     win.fill((214,206,195))

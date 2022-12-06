@@ -48,17 +48,13 @@ while running:
 
     elif windowType == 1:
         if chosen == 3:
-            thirdBand(win,white)
+            thirdBand(win,white,white)
 
         elif chosen == 4:
-            # print("4")
-            # selectMenu(win,white,cancelColor)
-            break
+            fourthBand(win,white)
 
         else:
-            # print("5")
-            # selectMenu(win,white,cancelColor)
-            break
+            fifthBand(win,white)
 
     pygame.display.update() 
     

@@ -109,16 +109,6 @@ def thirdBand(win,cancelColour,white):
         fifthBandColor=(255,0,100) # change to border
         hoverOn=3
 
-    for event in pygame.event.get(): # causes laggy close button
-            if event.type==pygame.MOUSEBUTTONDOWN:
-                if hoverOn==1:
-                    print("selected: band 1")
-                elif hoverOn==2:
-                    print("selected: band 2")
-                elif hoverOn==3:
-                    print("selected: band 3")
-                # fix bug for return
-
     band1 = pygame.draw.rect(win,thirdBandColor,[200,90,110,220])
     band2 = pygame.draw.rect(win,fourthBandColor,[325,90,110,220])
     band3 = pygame.draw.rect(win,fifthBandColor,[450,90,110,220])

@@ -97,16 +97,15 @@ def thirdBand(win,cancelColour,white):
 
     # can simplify by getting mouse first, then check if button is clicked
     if mouse[0]>200 and mouse[0]<330 and mouse[1]>90 and mouse[1]<310:
-        # thirdBandColor=((255,0,100)) # change to border
-        band1 = pygame.draw.rect(win,(255,0,100),[195,85,120,230])
+        band1 = pygame.draw.rect(win,(190,180,171),[195,85,120,230])
         hoverOn=1
         
     elif mouse[0]>325 and mouse[0]<435 and mouse[1]>90 and mouse[1]<310:
-        fourthBandColor=(255,0,100) # change to border
+        band2 = pygame.draw.rect(win,(190,181,171),[320,85,120,230])
         hoverOn=2
 
     elif mouse[0]>450 and mouse[0]<560 and mouse[1]>90 and mouse[1]<310:
-        fifthBandColor=(255,0,100) # change to border
+        band3=pygame.draw.rect(win,(190,181,171),[445,85,120,230])
         hoverOn=3
 
     band1 = pygame.draw.rect(win,thirdBandColor,[200,90,110,220])

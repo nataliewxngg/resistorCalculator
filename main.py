@@ -32,16 +32,46 @@ def returnToMenu(): #check if a colour is chosen, or if the cancel button is pre
         global windowType
         windowType = 0
 
+def checkSelectedBand(chosen):
+    mouse=pygame.mouse.get_pos()
+
+    if chosen==3:
+        if mouse[0]>200 and mouse[0]<330 and mouse[1]>90 and mouse[1]<310:
+            selected=1
+        elif mouse[0]>325 and mouse[0]<435 and mouse[1]>90 and mouse[1]<310:
+            selected=2
+        elif mouse[0]>450 and mouse[0]<560 and mouse[1]>90 and mouse[1]<310:
+            selected=3
+        else:
+            return
+    
+    elif chosen==4:
+        return
+
+    elif chosen==5:
+        return
+
+    print(selected)
+
 # main program
 while running:
+
     for event in pygame.event.get(): 
+        
         if event.type==pygame.QUIT: 
             running=False 
+
         if event.type == pygame.MOUSEBUTTONDOWN:
             if windowType == 0: # if in menu, check which 'bands' button chosen
                 chooseBandsNum()
+            
             elif windowType == 1: # if in 'bands' page, check if 'return to menu' button chosen
                 returnToMenu()
+                
+                if chosen == 3:
+                    checkSelectedBand(chosen)
+                elif chosen == 4: print("nothing yet")
+                else: print("nothing yet")
 
     if windowType == 0: 
         menu(win)

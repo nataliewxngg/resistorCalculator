@@ -70,6 +70,7 @@ while running:
                 
                 if chosen == 3:
                     checkSelectedBand(chosen)
+
                 elif chosen == 4: print("nothing yet")
                 else: print("nothing yet")
 
@@ -78,7 +79,7 @@ while running:
 
     elif windowType == 1:
         if chosen == 3:
-            thirdBand(win,white,white)
+            thirdBand(win,white)
 
         elif chosen == 4:
             fourthBand(win,white)

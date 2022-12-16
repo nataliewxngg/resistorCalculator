@@ -46,10 +46,35 @@ def checkSelectedBand(chosen):
             return
     
     elif chosen==4:
-        return
-
+        if mouse[0]>145 and mouse[0]<255 and mouse[1]>90 and mouse[1]<310:
+            selected=1
+        elif mouse[0]>270 and mouse[0]<380 and mouse[1]>90 and mouse[1]<310:
+            selected=2
+        elif mouse[0]>395 and mouse[0]<505 and mouse[1]>90 and mouse[1]<310:
+            selected=3
+        elif mouse[0]>520 and mouse[0]<630 and mouse[1]>90 and mouse[1]<310:
+            selected=4
+        else: 
+            return
+    
     elif chosen==5:
-        return
+        if mouse[0]>90 and mouse[0]<200 and mouse[1]>90 and mouse[1]<310:
+            selected=1
+            
+        elif mouse[0]>215 and mouse[0]<325 and mouse[1]>90 and mouse[1]<310:
+            selected=2
+
+        elif mouse[0]>340 and mouse[0]<505 and mouse[1]>90 and mouse[1]<310:
+            selected=3
+
+        elif mouse[0]>465 and mouse[0]<630 and mouse[1]>90 and mouse[1]<310:
+            selected=4
+
+        elif mouse[0]>590 and mouse[0]<720 and mouse[1]>90 and mouse[1]<310:
+            selected=5
+
+        else:
+            return
 
     print(selected)
 
@@ -68,11 +93,7 @@ while running:
             elif windowType == 1: # if in 'bands' page, check if 'return to menu' button chosen
                 returnToMenu()
                 
-                if chosen == 3:
-                    checkSelectedBand(chosen)
-
-                elif chosen == 4: print("nothing yet")
-                else: print("nothing yet")
+                checkSelectedBand(chosen)
 
     if windowType == 0: 
         menu(win)

@@ -135,7 +135,7 @@ def fourthBand(win,white):
 
     elif mouse[0]>520 and mouse[0]<630 and mouse[1]>90 and mouse[1]<310:
         band4=pygame.draw.rect(win,(190,181,171),[515,85,120,230])
-        hoverOn=3
+        hoverOn=4
 
     band1 = pygame.draw.rect(win,firstBandColor,[145,90,110,220])
     band2 = pygame.draw.rect(win,secondBandColor,[270,90,110,220])
@@ -165,11 +165,11 @@ def fifthBand(win,white):
 
     elif mouse[0]>465 and mouse[0]<630 and mouse[1]>90 and mouse[1]<310:
         band4=pygame.draw.rect(win,(190,181,171),[460,85,120,230])
-        hoverOn=3
+        hoverOn=4
 
     elif mouse[0]>590 and mouse[0]<720 and mouse[1]>90 and mouse[1]<310:
         band4=pygame.draw.rect(win,(190,181,171),[585,85,120,230])
-        hoverOn=3
+        hoverOn=5
 
     band1 = pygame.draw.rect(win,firstBandColor,[90,90,110,220])
     band2 = pygame.draw.rect(win,secondBandColor,[215,90,110,220])

@@ -87,8 +87,7 @@ def cancelButton(win,cancelColour,cancelFont):
 
 
 # replace with separate pages for different bands
-def thirdBand(win,white):
-    thirdBandColor=fourthBandColor=fifthBandColor=white
+def thirdBand(win,thirdBandColor,fourthBandColor,fifthBandColor,white):
     win.fill((214,206,195))
     cancelButton(win,white,pygame.font.Font("assets/GOUDOSB.TTF",35))
 

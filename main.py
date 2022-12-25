@@ -12,6 +12,8 @@ mouse=pygame.mouse.get_pos()
 white=(255,255,255)
 windowType = 0 # 0 means the main menu is open, 1 means selecting colour menu is open
 
+thirdBandColor3=fourthBandColor3=fifthBandColor3=white
+
 def chooseBandsNum() : # check if one of the squares is clicked on
     global chosen
     chosen = 0
@@ -34,6 +36,7 @@ def returnToMenu(): #check if a colour is chosen, or if the cancel button is pre
 
 def checkSelectedBand(chosen):
     mouse=pygame.mouse.get_pos()
+    global selected
 
     if chosen==3:
         if mouse[0]>200 and mouse[0]<330 and mouse[1]>90 and mouse[1]<310:
@@ -92,15 +95,36 @@ while running:
             
             elif windowType == 1: # if in 'bands' page, check if 'return to menu' button chosen
                 returnToMenu()
-                
                 checkSelectedBand(chosen)
+                
+        if event.type==pygame.KEYDOWN and windowType==1:
+            listOfNormalColors=[(255,255,255),(0,0,0),(92,64,51),(255,0,0),(255,165,0),(255,255,0),(0,255,0),(0,0,255),(230,230,250),(220,220,220),(255,255,255)]
+            # black,brown,red,orange,yellow,green,blue,violet,grey,white
+            
+            if event.key==pygame.K_RIGHT:
+                if chosen==3:
+                    if selected==1:
+                        thirdBandColor3=listOfNormalColors[listOfNormalColors.index(thirdBandColor3)+1]
+                    elif selected==2:
+                        fourthBandColor3=listOfNormalColors[listOfNormalColors.index(fourthBandColor3)+1]
+                    elif selected==3:
+                        fifthBandColor3=listOfNormalColors[listOfNormalColors.index(fifthBandColor3)+1]
+            
+            elif event.key==pygame.K_LEFT:
+                if chosen==3:
+                    if selected==1:
+                        thirdBandColor3=listOfNormalColors[listOfNormalColors.index(thirdBandColor3)-1]
+                    elif selected==2:
+                        fourthBandColor3=listOfNormalColors[listOfNormalColors.index(fourthBandColor3)-1]
+                    elif selected==3:
+                        fifthBandColor3=listOfNormalColors[listOfNormalColors.index(fifthBandColor3)-1]
 
     if windowType == 0: 
         menu(win)
 
     elif windowType == 1:
         if chosen == 3:
-            thirdBand(win,white)
+            thirdBand(win,thirdBandColor3,fourthBandColor3,fifthBandColor3,white)
 
         elif chosen == 4:
             fourthBand(win,white)

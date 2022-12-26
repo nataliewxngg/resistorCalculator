@@ -14,6 +14,7 @@ windowType = 0 # 0 means the main menu is open, 1 means selecting colour menu is
 
 thirdBandColor3=fourthBandColor3=fifthBandColor3=white
 
+# functions needed in pygame.event.get loop
 def chooseBandsNum() : # check if one of the squares is clicked on
     global chosen
     chosen = 0

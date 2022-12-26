@@ -82,6 +82,21 @@ def checkSelectedBand(chosen):
 
     print(selected)
 
+def calculate3():
+    mouse=pygame.mouse.get_pos()
+    if mouse[0]>320 and mouse[0]<440 and mouse[1]>320 and mouse[1]<360:
+        print("3 bands must be calculated.")
+
+def calculate4():
+    mouse=pygame.mouse.get_pos()
+    if mouse[0]>320 and mouse[0]<440 and mouse[1]>320 and mouse[1]<360:
+        print("4 bands must be calculated.")
+
+def calculate5():
+    mouse=pygame.mouse.get_pos()
+    if mouse[0]>320 and mouse[0]<440 and mouse[1]>320 and mouse[1]<360:
+        print("5 bands must be calculated.")
+
 # main program
 while running:
 
@@ -97,6 +112,13 @@ while running:
             elif windowType == 1: # if in 'bands' page, check if 'return to menu' button chosen
                 returnToMenu()
                 checkSelectedBand(chosen)
+
+                if chosen==3:
+                    calculate3()
+                elif chosen==4:
+                    calculate4()
+                elif chosen==5:
+                    calculate5()
                 
         if event.type==pygame.KEYDOWN and windowType==1:
             listOfNormalColors=[(255,255,255),(0,0,0),(92,64,51),(255,0,0),(255,165,0),(255,255,0),(0,255,0),(0,0,255),(230,230,250),(220,220,220),(255,255,255)]

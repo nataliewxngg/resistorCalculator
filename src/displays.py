@@ -85,11 +85,22 @@ def cancelButton(win,cancelColour,cancelFont):
     cancelText = cancelFont.render("return",True,cancelColour)
     win.blit(cancelText,cancelButton)
 
+def calculateButton(win,calculateColor,calculateFont):
+    mouse=pygame.mouse.get_pos()
+    
+    if mouse[0]>320 and mouse[0]<440 and mouse[1]>320 and mouse[1]<360:
+        calculateColor=(190,180,171)
+
+    calculateButton=pygame.draw.rect(win,(214,206,195),[320,320,120,40])
+    calculateText=calculateFont.render("calculate",True,calculateColor)
+
+    win.blit(calculateText,calculateButton)
 
 # replace with separate pages for different bands
 def thirdBand(win,thirdBandColor,fourthBandColor,fifthBandColor,white):
     win.fill((214,206,195))
     cancelButton(win,white,pygame.font.Font("assets/GOUDOSB.TTF",35))
+    calculateButton(win,white,pygame.font.Font("assets/GOUDOSB.TTF",35))
 
     hoverOn=0
     mouse=pygame.mouse.get_pos()
@@ -115,6 +126,7 @@ def fourthBand(win,white):
     firstBandColor=secondBandColor=thirdBandColor=fourthBandColor=white
     win.fill((214,206,195))
     cancelButton(win,white,pygame.font.Font("assets/GOUDOSB.TTF",35))
+    calculateButton(win,white,pygame.font.Font("assets/GOUDOSB.TTF",35))
 
     hoverOn=0
     mouse=pygame.mouse.get_pos()
@@ -145,6 +157,7 @@ def fifthBand(win,white):
     firstBandColor=secondBandColor=thirdBandColor=fourthBandColor=fifthBandColor=white
     win.fill((214,206,195))
     cancelButton(win,white,pygame.font.Font("assets/GOUDOSB.TTF",35))
+    calculateButton(win,white,pygame.font.Font("assets/GOUDOSB.TTF",35))
 
     hoverOn=0
     mouse=pygame.mouse.get_pos()

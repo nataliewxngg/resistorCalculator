@@ -121,27 +121,49 @@ while running:
                     calculate5()
                 
         if event.type==pygame.KEYDOWN and windowType==1:
-            listOfNormalColors=[(255,255,255),(0,0,0),(92,64,51),(255,0,0),(255,165,0),(255,255,0),(0,255,0),(0,0,255),(230,230,250),(220,220,220),(255,255,255)]
+            listOfNormalColors=[(255,255,255),(0,0,0),(92,64,51),(255,0,0),(255,165,0),(255,255,0),(0,255,0),(0,0,255),(221,160,221),(128,128,128)]
             # black,brown,red,orange,yellow,green,blue,violet,grey,white
             
             if event.key==pygame.K_RIGHT:
                 if chosen==3:
                     if selected==1:
-                        thirdBandColor3=listOfNormalColors[listOfNormalColors.index(thirdBandColor3)+1]
+                        if listOfNormalColors.index(thirdBandColor3)==9:
+                            thirdBandColor3=listOfNormalColors[0]
+
+                        else: thirdBandColor3=listOfNormalColors[listOfNormalColors.index(thirdBandColor3)+1]
+
                     elif selected==2:
-                        fourthBandColor3=listOfNormalColors[listOfNormalColors.index(fourthBandColor3)+1]
+                        if listOfNormalColors.index(fourthBandColor3)==9:
+                            fourthBandColor3=listOfNormalColors[0]
+
+                        else: fourthBandColor3=listOfNormalColors[listOfNormalColors.index(fourthBandColor3)+1]
+                    
                     elif selected==3:
+                        if listOfNormalColors.index(fifthBandColor3)==9:
+                            fifthBandColor3=listOfNormalColors[0]
+                        
                         fifthBandColor3=listOfNormalColors[listOfNormalColors.index(fifthBandColor3)+1]
             
             elif event.key==pygame.K_LEFT:
                 if chosen==3:
                     if selected==1:
-                        thirdBandColor3=listOfNormalColors[listOfNormalColors.index(thirdBandColor3)-1]
-                    elif selected==2:
-                        fourthBandColor3=listOfNormalColors[listOfNormalColors.index(fourthBandColor3)-1]
-                    elif selected==3:
-                        fifthBandColor3=listOfNormalColors[listOfNormalColors.index(fifthBandColor3)-1]
+                        if listOfNormalColors.index(thirdBandColor3)==0:
+                            thirdBandColor3=listOfNormalColors[-1]
+                            
+                        else: thirdBandColor3=listOfNormalColors[listOfNormalColors.index(thirdBandColor3)-1]
 
+                    elif selected==2:
+                        if listOfNormalColors.index(fourthBandColor3)==0:
+                            fourthBandColor3=listOfNormalColors[-1]
+                        
+                        else: fourthBandColor3=listOfNormalColors[listOfNormalColors.index(fourthBandColor3)-1]
+
+                    elif selected==3:
+                        if listOfNormalColors.index(fifthBandColor3)==0:
+                            fifthBandColors3=listOfNormalColors[-1]
+
+                        else: fifthBandColor3=listOfNormalColors[listOfNormalColors.index(fifthBandColor3)-1]
+                    
     if windowType == 0: 
         menu(win)
 

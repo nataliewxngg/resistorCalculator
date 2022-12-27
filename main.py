@@ -17,6 +17,7 @@ ohm=""
 finalOhm=""
 thirdBandColor3=fourthBandColor3=fifthBandColor3=white
 firstBandColor4=secondBandColor4=thirdBandColor4=fourthBandColor4=white
+firstBandColor5=secondBandColor5=thirdBandColor5=fourthBandColor5=fifthBandColor5=white
 listOfNormalColors=[(0,0,0),(92,64,51),(255,0,0),(255,165,0),(255,255,0),(0,255,0),(0,0,255),(221,160,221),(128,128,128),(255,255,255)]
 # black,brown,red,orange,yellow,green,blue,violet,grey,white
 listOfMultiplierColors=[(0,0,0),(92,64,51),(255,0,0),(255,165,0),(255,255,0),(0,255,0),(0,0,255),(221,160,221),(128,128,128),(255,255,255),(212,175,55),(192,192,192)]
@@ -34,7 +35,7 @@ dictOfToleranceColors={
     (128,128,128):"0.05%",
     (212,175,55):"5%",
     (192,192,192):"10%",
-    (255,255,255):""
+    (255,255,255):"20%"
 }
 # brown,red,orange,yellow,green,blue,violet,gray,gold,silver
 
@@ -101,7 +102,7 @@ def checkSelectedBand(chosen):
 
     print(selected)
 
-def calculate3(thirdBandColor3,fourthBandColor3,fifthBandColor3,listOfNormalColors,listOfMultiplierColors,ohm):
+def calculate3(thirdBandColor3,fourthBandColor3,fifthBandColor3,ohm):
     ohm=""
     colors=[thirdBandColor3,fourthBandColor3,fifthBandColor3]
 
@@ -123,7 +124,7 @@ def calculate3(thirdBandColor3,fourthBandColor3,fifthBandColor3,listOfNormalColo
     finalOhm=f"{ohm} ohms 20%"
     print(finalOhm)
 
-def calculate4(firstBandColor4,secondBandColor4,thirdBandColor4,fourthBandColor4,listOfNormalColors,listOfMultiplierColors,ohm):
+def calculate4(firstBandColor4,secondBandColor4,thirdBandColor4,fourthBandColor4,ohm):
     ohm=""
     colors=[firstBandColor4,secondBandColor4,thirdBandColor4,fourthBandColor4]
 
@@ -147,10 +148,28 @@ def calculate4(firstBandColor4,secondBandColor4,thirdBandColor4,fourthBandColor4
     finalOhm=f"{ohm} ohms {tolerance}"
     print(finalOhm)
 
-def calculate5():
-    mouse=pygame.mouse.get_pos()
-    if mouse[0]>320 and mouse[0]<440 and mouse[1]>320 and mouse[1]<360:
-        print("5 bands must be calculated.")
+def calculate5(firstBandColor5,secondBandColor5,thirdBandColor5,fourthBandColor5,fifthBandColor5,ohm):
+    ohm=""
+    colors=[firstBandColor5,secondBandColor5,thirdBandColor5,fourthBandColor5,fifthBandColor5]
+
+    for count in range(3):
+        index=listOfNormalColors.index(colors[count])
+        ohm=ohm+str(index)
+
+    index=listOfMultiplierColors.index(colors[3])
+    if index>=0 and index<=9:
+        ohm=int(ohm)*(10**(index))
+    else:
+        if index==10:
+            ohm=int(ohm)/10
+        elif index==11:
+            ohm=int(ohm)/100
+
+    tolerance=dictOfToleranceColors.get(fifthBandColor5)
+
+    global finalOhm
+    finalOhm=f"{ohm} ohms {tolerance}"
+    print(finalOhm)
 
 # main program
 while running:
@@ -171,13 +190,14 @@ while running:
                 mouse=pygame.mouse.get_pos()
 
                 if chosen==3 and mouse[0]>320 and mouse[0]<440 and mouse[1]>320 and mouse[1]<360 and calculated==False:
-                    calculate3(thirdBandColor3,fourthBandColor3,fifthBandColor3,listOfNormalColors,listOfMultiplierColors,ohm)
+                    calculate3(thirdBandColor3,fourthBandColor3,fifthBandColor3,ohm)
                     calculated=True
                 elif chosen==4 and mouse[0]>320 and mouse[0]<440 and mouse[1]>320 and mouse[1]<360:
-                    calculate4(firstBandColor4,secondBandColor4,thirdBandColor4,fourthBandColor4,listOfNormalColors,listOfMultiplierColors,ohm)
+                    calculate4(firstBandColor4,secondBandColor4,thirdBandColor4,fourthBandColor4,ohm)
                     calculated=True
-                elif chosen==5:
-                    calculate5()
+                elif chosen==5 and mouse[0]>320 and mouse[0]<440 and mouse[1]>320 and mouse[1]<360:
+                    calculate5(firstBandColor5,secondBandColor5,thirdBandColor5,fourthBandColor5,fifthBandColor5,ohm)
+                    calculated=True
                 
         if event.type==pygame.KEYDOWN and windowType==1:
             
@@ -242,7 +262,45 @@ while running:
                         else: fourthBandColor4=listOfToleranceColors[listOfToleranceColors.index(fourthBandColor4)+1] 
 
                 elif chosen==5:
-                    print("dslkfjsd")
+                    if selected==1:
+                        calculated=False
+
+                        if listOfNormalColors.index(firstBandColor5)==9:
+                            firstBandColor5=listOfNormalColors[0]
+                        
+                        else: firstBandColor5=listOfNormalColors[listOfNormalColors.index(firstBandColor5)+1]
+                    
+                    elif selected==2:
+                        calculated=False
+
+                        if listOfNormalColors.index(secondBandColor5)==9:
+                            secondBandColor5=listOfNormalColors[0]
+
+                        else: secondBandColor5=listOfNormalColors[listOfNormalColors.index(secondBandColor5)+1]
+                    
+                    elif selected==3:
+                        calculated=False
+
+                        if listOfNormalColors.index(thirdBandColor5)==9:
+                            thirdBandColor5=listOfNormalColors[0]
+
+                        else: thirdBandColor5=listOfNormalColors[listOfNormalColors.index(thirdBandColor5)+1]
+
+                    elif selected==4:
+                        calculated=False
+
+                        if listOfMultiplierColors.index(fourthBandColor5)==11:
+                            fourthBandColor5=listOfMultiplierColors[0]
+                        
+                        else: fourthBandColor5=listOfMultiplierColors[listOfMultiplierColors.index(fourthBandColor5)+1]
+
+                    elif selected==5:
+                        calculated=False
+                        
+                        if listOfToleranceColors.index(fifthBandColor5)==10:
+                            fifthBandColor5=listOfToleranceColors[0]
+                        
+                        else: fifthBandColor5=listOfToleranceColors[listOfToleranceColors.index(fifthBandColor5)+1]
 
             elif event.key==pygame.K_LEFT:
                 if chosen==3:
@@ -305,7 +363,45 @@ while running:
                         else: fourthBandColor4=listOfToleranceColors[listOfToleranceColors.index(fourthBandColor4)-1]
                 
                 elif chosen==5:
-                    print("sdfsdfsdfasdf")
+                    if selected==1:
+                        calculated=False
+
+                        if listOfNormalColors.index(firstBandColor5)==0:
+                            firstBandColor5=listOfNormalColors[-1]
+                        
+                        else: firstBandColor5=listOfNormalColors[listOfNormalColors.index(firstBandColor5)-1]
+                    
+                    elif selected==2:
+                        calculated=False
+
+                        if listOfNormalColors.index(secondBandColor5)==0:
+                            secondBandColor5=listOfNormalColors[-1]
+
+                        else: secondBandColor5=listOfNormalColors[listOfNormalColors.index(secondBandColor5)-1]
+
+                    elif selected==3:
+                        calculated=False
+
+                        if listOfNormalColors.index(thirdBandColor5)==0:
+                            thirdBandColor5=listOfNormalColors[-1]
+                        
+                        else: thirdBandColor5=listOfNormalColors[listOfNormalColors.index(thirdBandColor5)-1]
+
+                    elif selected==4:
+                        calculated=False
+
+                        if listOfMultiplierColors.index(fourthBandColor5)==0:
+                            fourthBandColor5=listOfMultiplierColors[-1]
+                        
+                        else: fourthBandColor5=listOfMultiplierColors[listOfMultiplierColors.index(fourthBandColor5)-1]
+
+                    elif selected==5:
+                        calculated=False
+                        
+                        if listOfToleranceColors.index(fifthBandColor5)==0:
+                            fifthBandColor5=listOfToleranceColors[-1]
+
+                        else: fifthBandColor5=listOfToleranceColors[listOfToleranceColors.index(fifthBandColor5)-1]
 
     if windowType == 0: 
         menu(win)
@@ -318,7 +414,7 @@ while running:
             fourthBand(win,firstBandColor4,secondBandColor4,thirdBandColor4,fourthBandColor4,white,calculated,finalOhm,pygame.font.Font("assets/GOUDOSB.TTF",35))
 
         else:
-            fifthBand(win,white)
+            fifthBand(win,firstBandColor5,secondBandColor5,thirdBandColor5,fourthBandColor5,fifthBandColor5,white,calculated,finalOhm,pygame.font.Font("assets/GOUDOSB.TTF",35))
 
     pygame.display.update() 
     

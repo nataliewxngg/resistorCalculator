@@ -133,6 +133,9 @@ def thirdBand(win,thirdBandColor,fourthBandColor,fifthBandColor,white,calculated
 
 def fourthBand(win,firstBandColor,secondBandColor,thirdBandColor,fourthBandColor,white,calculated,ohm,ohmFont):
     win.fill((214,206,195))
+    bgImg=pygame.image.load("assets/fourBandsBg.png")
+    win.blit(bgImg,(0,0))
+
     cancelButton(win,white,pygame.font.Font("assets/GOUDOSB.TTF",35))
     
     if calculated==False:
@@ -170,6 +173,9 @@ def fourthBand(win,firstBandColor,secondBandColor,thirdBandColor,fourthBandColor
 
 def fifthBand(win,firstBandColor,secondBandColor,thirdBandColor,fourthBandColor,fifthBandColor,white,calculated,ohm,ohmFont):
     win.fill((214,206,195))
+    bgImg=pygame.image.load("assets/fiveBandsBg.png")
+    win.blit(bgImg,(0,0))
+
     cancelButton(win,white,pygame.font.Font("assets/GOUDOSB.TTF",35))
 
     if calculated==False:

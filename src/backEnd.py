@@ -85,7 +85,7 @@ elif bands==4:
     if colorsInput in fourthBandColors:
         colors.append(colorsInput)
 
-    resistor=resistorCalculator(colors,ohm,colorsList, fourthBandColors)
+    resistor=resistorCalculator(colors,ohm,colorsList,fourthBandColors)
     resistor.fourBands()
 
 # 5 bands not done

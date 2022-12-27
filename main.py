@@ -13,6 +13,8 @@ white=(255,255,255)
 windowType = 0 # 0 means the main menu is open, 1 means selecting colour menu is open
 
 thirdBandColor3=fourthBandColor3=fifthBandColor3=white
+listOfNormalColors=[(255,255,255),(0,0,0),(92,64,51),(255,0,0),(255,165,0),(255,255,0),(0,255,0),(0,0,255),(221,160,221),(128,128,128)]
+# black,brown,red,orange,yellow,green,blue,violet,grey,white
 
 # functions needed in pygame.event.get loop
 def chooseBandsNum() : # check if one of the squares is clicked on
@@ -82,10 +84,25 @@ def checkSelectedBand(chosen):
 
     print(selected)
 
-def calculate3():
+def calculate3(thirdBandColor3,fourthBandColor3,fifthBandColor3,listOfNormalColors):
     mouse=pygame.mouse.get_pos()
+    ohm=""
+
     if mouse[0]>320 and mouse[0]<440 and mouse[1]>320 and mouse[1]<360:
-        print("3 bands must be calculated.")
+        print("3 bands must be calculated.") # developer setting
+
+        colors=[thirdBandColor3,fourthBandColor3,fifthBandColor3]
+
+        for count in range(2):
+            index=listOfNormalColors.index(colors[count])-1
+        
+            ohm=ohm+str(index)
+
+        index=listOfNormalColors.index(colors[2])-1
+        ohm=ohm+(index*"0")
+        print(ohm,"ohms within 20%")
+
+        #remove calculate button and replace with result
 
 def calculate4():
     mouse=pygame.mouse.get_pos()
@@ -114,15 +131,13 @@ while running:
                 checkSelectedBand(chosen)
 
                 if chosen==3:
-                    calculate3()
+                    calculate3(thirdBandColor3,fourthBandColor3,fifthBandColor3,listOfNormalColors)
                 elif chosen==4:
                     calculate4()
                 elif chosen==5:
                     calculate5()
                 
         if event.type==pygame.KEYDOWN and windowType==1:
-            listOfNormalColors=[(255,255,255),(0,0,0),(92,64,51),(255,0,0),(255,165,0),(255,255,0),(0,255,0),(0,0,255),(221,160,221),(128,128,128)]
-            # black,brown,red,orange,yellow,green,blue,violet,grey,white
             
             if event.key==pygame.K_RIGHT:
                 if chosen==3:
@@ -160,7 +175,7 @@ while running:
 
                     elif selected==3:
                         if listOfNormalColors.index(fifthBandColor3)==0:
-                            fifthBandColors3=listOfNormalColors[-1]
+                            fifthBandColor3=listOfNormalColors[-1]
 
                         else: fifthBandColor3=listOfNormalColors[listOfNormalColors.index(fifthBandColor3)-1]
                     

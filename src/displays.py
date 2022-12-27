@@ -129,11 +129,17 @@ def thirdBand(win,thirdBandColor,fourthBandColor,fifthBandColor,white,calculated
     band2 = pygame.draw.rect(win,fourthBandColor,[325,90,110,220])
     band3 = pygame.draw.rect(win,fifthBandColor,[450,90,110,220])
 
-def fourthBand(win,white):
-    firstBandColor=secondBandColor=thirdBandColor=fourthBandColor=white
+def fourthBand(win,firstBandColor,secondBandColor,thirdBandColor,fourthBandColor,white,calculated,ohm,ohmFont):
     win.fill((214,206,195))
     cancelButton(win,white,pygame.font.Font("assets/GOUDOSB.TTF",35))
-    calculateButton(win,white,pygame.font.Font("assets/GOUDOSB.TTF",35))
+    
+    if calculated==False:
+        calculateButton(win,white,pygame.font.Font("assets/GOUDOSB.TTF",35))
+    else:
+        ohmText=ohmFont.render(ohm,True,white)
+        ohmTextRect=ohmText.get_rect(center=(760/2,340))
+
+        win.blit(ohmText,ohmTextRect)
 
     hoverOn=0
     mouse=pygame.mouse.get_pos()

@@ -12,7 +12,7 @@ running=True
 selected=0
 white=(255,255,255)
 windowType = 0 # 0 means the main menu is open, 1 means selecting colour menu is open
-calculated=False
+threeCalculated=fourCalculated=fiveCalculated=False
 ohm=""
 finalOhm=""
 thirdBandColor3=fourthBandColor3=fifthBandColor3=white
@@ -56,7 +56,7 @@ def chooseBandsNum() : # check if one of the squares is clicked on
 
 def returnToMenu(): #check if a colour is chosen, or if the cancel button is pressed
     mouse=pygame.mouse.get_pos()
-    if mouse[0]>20 and mouse[0]<170 and mouse[1]>20 and mouse[1]<60: 
+    if mouse[0]>20 and mouse[0]<110 and mouse[1]>20 and mouse[1]<60: 
         global windowType
         windowType = 0
 
@@ -65,11 +65,11 @@ def checkSelectedBand(chosen):
     global selected
 
     if chosen==3:
-        if mouse[0]>200 and mouse[0]<330 and mouse[1]>90 and mouse[1]<310:
+        if mouse[0]>220 and mouse[0]<330 and mouse[1]>85 and mouse[1]<305:
             selected=1
-        elif mouse[0]>325 and mouse[0]<435 and mouse[1]>90 and mouse[1]<310:
+        elif mouse[0]>345 and mouse[0]<455 and mouse[1]>85 and mouse[1]<305:
             selected=2
-        elif mouse[0]>450 and mouse[0]<560 and mouse[1]>90 and mouse[1]<310:
+        elif mouse[0]>470 and mouse[0]<580 and mouse[1]>85 and mouse[1]<305:
             selected=3
         else:
             selected=0
@@ -173,7 +173,6 @@ def calculate5(firstBandColor5,secondBandColor5,thirdBandColor5,fourthBandColor5
 
 # main program
 while running:
-
     for event in pygame.event.get(): 
         
         if event.type==pygame.QUIT: 
@@ -189,22 +188,22 @@ while running:
 
                 mouse=pygame.mouse.get_pos()
 
-                if chosen==3 and mouse[0]>320 and mouse[0]<440 and mouse[1]>320 and mouse[1]<360 and calculated==False:
+                if chosen==3 and mouse[0]>360 and mouse[0]<440 and mouse[1]>310 and mouse[1]<335:
                     calculate3(thirdBandColor3,fourthBandColor3,fifthBandColor3,ohm)
-                    calculated=True
-                elif chosen==4 and mouse[0]>320 and mouse[0]<440 and mouse[1]>320 and mouse[1]<360:
+                    threeCalculated=True
+                elif chosen==4 and mouse[0]>360 and mouse[0]<440 and mouse[1]>310 and mouse[1]<335:
                     calculate4(firstBandColor4,secondBandColor4,thirdBandColor4,fourthBandColor4,ohm)
-                    calculated=True
-                elif chosen==5 and mouse[0]>320 and mouse[0]<440 and mouse[1]>320 and mouse[1]<360:
+                    fourCalculated=True
+                elif chosen==5 and mouse[0]>360 and mouse[0]<440 and mouse[1]>310 and mouse[1]<335:
                     calculate5(firstBandColor5,secondBandColor5,thirdBandColor5,fourthBandColor5,fifthBandColor5,ohm)
-                    calculated=True
+                    fiveCalculated=True
                 
         if event.type==pygame.KEYDOWN and windowType==1:
             
             if event.key==pygame.K_RIGHT:
                 if chosen==3:
                     if selected==1:
-                        calculated=False
+                        threeCalculated=False
 
                         if listOfNormalColors.index(thirdBandColor3)==9:
                             thirdBandColor3=listOfNormalColors[0]
@@ -212,7 +211,7 @@ while running:
                         else: thirdBandColor3=listOfNormalColors[listOfNormalColors.index(thirdBandColor3)+1]
 
                     elif selected==2:
-                        calculated=False
+                        threeCalculated=False
                         
                         if listOfNormalColors.index(fourthBandColor3)==9:
                             fourthBandColor3=listOfNormalColors[0]
@@ -220,7 +219,7 @@ while running:
                         else: fourthBandColor3=listOfNormalColors[listOfNormalColors.index(fourthBandColor3)+1]
                     
                     elif selected==3:
-                        calculated=False
+                        threeCalculated=False
 
                         if listOfMultiplierColors.index(fifthBandColor3)==11:
                             fifthBandColor3=listOfMultiplierColors[0]
@@ -229,7 +228,7 @@ while running:
 
                 elif chosen==4:
                     if selected==1:
-                        calculated=False
+                        fourCalculated=False
 
                         if listOfNormalColors.index(firstBandColor4)==9:
                             firstBandColor4=listOfNormalColors[0]
@@ -237,7 +236,7 @@ while running:
                         else: firstBandColor4=listOfNormalColors[listOfNormalColors.index(firstBandColor4)+1]
 
                     elif selected==2:
-                        calculated=False
+                        fourCalculated=False
 
                         if listOfNormalColors.index(secondBandColor4)==9:
                             secondBandColor4=listOfNormalColors[0]
@@ -246,7 +245,7 @@ while running:
                             secondBandColor4=listOfNormalColors[listOfNormalColors.index(secondBandColor4)+1]
 
                     elif selected==3:
-                        calculated=False
+                        fourCalculated=False
 
                         if listOfMultiplierColors.index(thirdBandColor4)==11:
                             thirdBandColor4=listOfMultiplierColors[0]
@@ -254,7 +253,7 @@ while running:
                         else: thirdBandColor4=listOfMultiplierColors[listOfMultiplierColors.index(thirdBandColor4)+1]
 
                     elif selected==4:
-                        calculated=False
+                        fourCalculated=False
 
                         if listOfToleranceColors.index(fourthBandColor4)==10:
                             fourthBandColor4=listOfToleranceColors[0]
@@ -263,7 +262,7 @@ while running:
 
                 elif chosen==5:
                     if selected==1:
-                        calculated=False
+                        fiveCalculated=False
 
                         if listOfNormalColors.index(firstBandColor5)==9:
                             firstBandColor5=listOfNormalColors[0]
@@ -271,7 +270,7 @@ while running:
                         else: firstBandColor5=listOfNormalColors[listOfNormalColors.index(firstBandColor5)+1]
                     
                     elif selected==2:
-                        calculated=False
+                        fiveCalculated=False
 
                         if listOfNormalColors.index(secondBandColor5)==9:
                             secondBandColor5=listOfNormalColors[0]
@@ -279,7 +278,7 @@ while running:
                         else: secondBandColor5=listOfNormalColors[listOfNormalColors.index(secondBandColor5)+1]
                     
                     elif selected==3:
-                        calculated=False
+                        fiveCalculated=False
 
                         if listOfNormalColors.index(thirdBandColor5)==9:
                             thirdBandColor5=listOfNormalColors[0]
@@ -287,7 +286,7 @@ while running:
                         else: thirdBandColor5=listOfNormalColors[listOfNormalColors.index(thirdBandColor5)+1]
 
                     elif selected==4:
-                        calculated=False
+                        fiveCalculated=False
 
                         if listOfMultiplierColors.index(fourthBandColor5)==11:
                             fourthBandColor5=listOfMultiplierColors[0]
@@ -295,7 +294,7 @@ while running:
                         else: fourthBandColor5=listOfMultiplierColors[listOfMultiplierColors.index(fourthBandColor5)+1]
 
                     elif selected==5:
-                        calculated=False
+                        fiveCalculated=False
                         
                         if listOfToleranceColors.index(fifthBandColor5)==10:
                             fifthBandColor5=listOfToleranceColors[0]
@@ -305,7 +304,7 @@ while running:
             elif event.key==pygame.K_LEFT:
                 if chosen==3:
                     if selected==1:
-                        calculated=False
+                        threeCalculated=False
                         
                         if listOfNormalColors.index(thirdBandColor3)==0:
                             thirdBandColor3=listOfNormalColors[-1]
@@ -313,7 +312,7 @@ while running:
                         else: thirdBandColor3=listOfNormalColors[listOfNormalColors.index(thirdBandColor3)-1]
 
                     elif selected==2:
-                        calculated=False
+                        threeCalculated=False
 
                         if listOfNormalColors.index(fourthBandColor3)==0:
                             fourthBandColor3=listOfNormalColors[-1]
@@ -321,7 +320,7 @@ while running:
                         else: fourthBandColor3=listOfNormalColors[listOfNormalColors.index(fourthBandColor3)-1]
 
                     elif selected==3:
-                        calculated=False
+                        threeCalculated=False
 
                         if listOfMultiplierColors.index(fifthBandColor3)==0:
                             fifthBandColor3=listOfMultiplierColors[-1]
@@ -330,7 +329,7 @@ while running:
 
                 elif chosen==4:
                     if selected==1:
-                        calculated=False
+                        fourCalculated=False
 
                         if listOfNormalColors.index(firstBandColor4)==0:
                             firstBandColor4=listOfNormalColors[-1]
@@ -338,7 +337,7 @@ while running:
                         else: firstBandColor4=listOfNormalColors[listOfNormalColors.index(firstBandColor4)-1]
 
                     elif selected==2:
-                        calculated=False
+                        fourCalculated=False
 
                         if listOfNormalColors.index(secondBandColor4)==0:
                             secondBandColor4=listOfNormalColors[-1]
@@ -346,7 +345,7 @@ while running:
                         else: secondBandColor4=listOfNormalColors[listOfNormalColors.index(secondBandColor4)-1]
 
                     elif selected==3:
-                        calculated=False
+                        fourCalculated=False
 
                         if listOfMultiplierColors.index(thirdBandColor4)==0:
                             thirdBandColor4=listOfMultiplierColors[-1]
@@ -355,7 +354,7 @@ while running:
                             thirdBandColor4=listOfMultiplierColors[listOfMultiplierColors.index(thirdBandColor4)-1]
 
                     elif selected==4:
-                        calculated=False
+                        fourCalculated=False
 
                         if listOfToleranceColors.index(fourthBandColor4)==0:
                             fourthBandColor4=listOfToleranceColors[-1]
@@ -364,7 +363,7 @@ while running:
                 
                 elif chosen==5:
                     if selected==1:
-                        calculated=False
+                        fiveCalculated=False
 
                         if listOfNormalColors.index(firstBandColor5)==0:
                             firstBandColor5=listOfNormalColors[-1]
@@ -372,7 +371,7 @@ while running:
                         else: firstBandColor5=listOfNormalColors[listOfNormalColors.index(firstBandColor5)-1]
                     
                     elif selected==2:
-                        calculated=False
+                        fiveCalculated=False
 
                         if listOfNormalColors.index(secondBandColor5)==0:
                             secondBandColor5=listOfNormalColors[-1]
@@ -380,7 +379,7 @@ while running:
                         else: secondBandColor5=listOfNormalColors[listOfNormalColors.index(secondBandColor5)-1]
 
                     elif selected==3:
-                        calculated=False
+                        fiveCalculated=False
 
                         if listOfNormalColors.index(thirdBandColor5)==0:
                             thirdBandColor5=listOfNormalColors[-1]
@@ -388,7 +387,7 @@ while running:
                         else: thirdBandColor5=listOfNormalColors[listOfNormalColors.index(thirdBandColor5)-1]
 
                     elif selected==4:
-                        calculated=False
+                        fiveCalculated=False
 
                         if listOfMultiplierColors.index(fourthBandColor5)==0:
                             fourthBandColor5=listOfMultiplierColors[-1]
@@ -396,7 +395,7 @@ while running:
                         else: fourthBandColor5=listOfMultiplierColors[listOfMultiplierColors.index(fourthBandColor5)-1]
 
                     elif selected==5:
-                        calculated=False
+                        fiveCalculated=False
                         
                         if listOfToleranceColors.index(fifthBandColor5)==0:
                             fifthBandColor5=listOfToleranceColors[-1]
@@ -408,13 +407,13 @@ while running:
 
     elif windowType == 1:
         if chosen == 3:
-            thirdBand(win,thirdBandColor3,fourthBandColor3,fifthBandColor3,white,calculated,finalOhm,pygame.font.Font("assets/GOUDOSB.TTF",35))
+            thirdBand(win,thirdBandColor3,fourthBandColor3,fifthBandColor3,white,threeCalculated,finalOhm,pygame.font.Font("assets/GOUDOSB.TTF",20))
 
         elif chosen == 4:
-            fourthBand(win,firstBandColor4,secondBandColor4,thirdBandColor4,fourthBandColor4,white,calculated,finalOhm,pygame.font.Font("assets/GOUDOSB.TTF",35))
+            fourthBand(win,firstBandColor4,secondBandColor4,thirdBandColor4,fourthBandColor4,white,fourCalculated,finalOhm,pygame.font.Font("assets/GOUDOSB.TTF",20))
 
         else:
-            fifthBand(win,firstBandColor5,secondBandColor5,thirdBandColor5,fourthBandColor5,fifthBandColor5,white,calculated,finalOhm,pygame.font.Font("assets/GOUDOSB.TTF",35))
+            fifthBand(win,firstBandColor5,secondBandColor5,thirdBandColor5,fourthBandColor5,fifthBandColor5,white,fiveCalculated,finalOhm,pygame.font.Font("assets/GOUDOSB.TTF",20))
 
     pygame.display.update() 
     

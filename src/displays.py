@@ -77,10 +77,10 @@ def cancelButton(win,cancelColour,cancelFont):
     mouse=pygame.mouse.get_pos()
     # cancelButtonColour=(0,0,0)
 
-    if mouse[0]>20 and mouse[0]<170 and mouse[1]>20 and mouse[1]<60: # if mouse hovers on cancel button, change color
+    if mouse[0]>20 and mouse[0]<110 and mouse[1]>20 and mouse[1]<60: # if mouse hovers on cancel button, change color
         cancelColour = (190,180,171)
 
-    cancelButton = pygame.draw.rect(win,(214,206,195),[20,20,150,40])
+    cancelButton = pygame.draw.rect(win,(214,206,195),[20,20,10,40])
 
     cancelText = cancelFont.render("return",True,cancelColour)
     win.blit(cancelText,cancelButton)
@@ -88,24 +88,26 @@ def cancelButton(win,cancelColour,cancelFont):
 def calculateButton(win,calculateColor,calculateFont):
     mouse=pygame.mouse.get_pos()
     
-    if mouse[0]>320 and mouse[0]<440 and mouse[1]>320 and mouse[1]<360:
+    if mouse[0]>360 and mouse[0]<440 and mouse[1]>310 and mouse[1]<335:
         calculateColor=(190,180,171)
 
-    calculateButton=pygame.draw.rect(win,(214,206,195),[320,320,120,40])
     calculateText=calculateFont.render("calculate",True,calculateColor)
+    calculateTextRect=calculateText.get_rect(center=(800/2,325))
 
-    win.blit(calculateText,calculateButton)
+    win.blit(calculateText,calculateTextRect)
 
 # replace with separate pages for different bands
 def thirdBand(win,thirdBandColor,fourthBandColor,fifthBandColor,white,calculated,ohm,ohmFont):
     win.fill((214,206,195))
+    bgImg=pygame.image.load("assets/threeBandsBg.png")
+    win.blit(bgImg,(0,0))
     cancelButton(win,white,pygame.font.Font("assets/GOUDOSB.TTF",35))
 
     if calculated==False:
-        calculateButton(win,white,pygame.font.Font("assets/GOUDOSB.TTF",35))
+        calculateButton(win,white,pygame.font.Font("assets/GOUDOSB.TTF",20))
     else:
         ohmText=ohmFont.render(ohm,True,white)
-        ohmTextRect=ohmText.get_rect(center=(760/2,340))
+        ohmTextRect=ohmText.get_rect(center=(800/2,325))
 
         win.blit(ohmText,ohmTextRect)
         
@@ -113,21 +115,21 @@ def thirdBand(win,thirdBandColor,fourthBandColor,fifthBandColor,white,calculated
     mouse=pygame.mouse.get_pos()
 
     # can simplify by getting mouse first, then check if button is clicked
-    if mouse[0]>200 and mouse[0]<330 and mouse[1]>90 and mouse[1]<310:
-        band1 = pygame.draw.rect(win,(190,180,171),[195,85,120,230])
+    if mouse[0]>220 and mouse[0]<330 and mouse[1]>85 and mouse[1]<305:
+        band1 = pygame.draw.rect(win,(190,180,171),[215,80,120,230])
         hoverOn=1
         
-    elif mouse[0]>325 and mouse[0]<435 and mouse[1]>90 and mouse[1]<310:
-        band2 = pygame.draw.rect(win,(190,181,171),[320,85,120,230])
+    elif mouse[0]>345 and mouse[0]<455 and mouse[1]>85 and mouse[1]<305:
+        band2 = pygame.draw.rect(win,(190,181,171),[340,80,120,230])
         hoverOn=2
 
-    elif mouse[0]>450 and mouse[0]<560 and mouse[1]>90 and mouse[1]<310:
-        band3=pygame.draw.rect(win,(190,181,171),[445,85,120,230])
+    elif mouse[0]>470 and mouse[0]<580 and mouse[1]>85 and mouse[1]<305:
+        band3=pygame.draw.rect(win,(190,181,171),[465,80,120,230])
         hoverOn=3
 
-    band1 = pygame.draw.rect(win,thirdBandColor,[200,90,110,220])
-    band2 = pygame.draw.rect(win,fourthBandColor,[325,90,110,220])
-    band3 = pygame.draw.rect(win,fifthBandColor,[450,90,110,220])
+    band1 = pygame.draw.rect(win,thirdBandColor,[220,85,110,220])
+    band2 = pygame.draw.rect(win,fourthBandColor,[345,85,110,220])
+    band3 = pygame.draw.rect(win,fifthBandColor,[470,85,110,220])
 
 def fourthBand(win,firstBandColor,secondBandColor,thirdBandColor,fourthBandColor,white,calculated,ohm,ohmFont):
     win.fill((214,206,195))

@@ -75,27 +75,27 @@ def checkSelectedBand(chosen):
             selected=0
     
     elif chosen==4:
-        if mouse[0]>145 and mouse[0]<255 and mouse[1]>90 and mouse[1]<310:
+        if mouse[0]>160 and mouse[0]<270 and mouse[1]>90 and mouse[1]<310:
             selected=1
-        elif mouse[0]>270 and mouse[0]<380 and mouse[1]>90 and mouse[1]<310:
+        elif mouse[0]>285 and mouse[0]<395 and mouse[1]>90 and mouse[1]<310:
             selected=2
-        elif mouse[0]>395 and mouse[0]<505 and mouse[1]>90 and mouse[1]<310:
+        elif mouse[0]>410 and mouse[0]<520 and mouse[1]>90 and mouse[1]<310:
             selected=3
-        elif mouse[0]>520 and mouse[0]<630 and mouse[1]>90 and mouse[1]<310:
+        elif mouse[0]>535 and mouse[0]<645 and mouse[1]>90 and mouse[1]<310:
             selected=4
         else: 
             selected=0
     
     elif chosen==5:
-        if mouse[0]>90 and mouse[0]<200 and mouse[1]>90 and mouse[1]<310:
+        if mouse[0]>90 and mouse[0]<205 and mouse[1]>90 and mouse[1]<310:
             selected=1
-        elif mouse[0]>215 and mouse[0]<325 and mouse[1]>90 and mouse[1]<310:
+        elif mouse[0]>215 and mouse[0]<330 and mouse[1]>90 and mouse[1]<310:
             selected=2
-        elif mouse[0]>340 and mouse[0]<505 and mouse[1]>90 and mouse[1]<310:
+        elif mouse[0]>340 and mouse[0]<455 and mouse[1]>90 and mouse[1]<310:
             selected=3
-        elif mouse[0]>465 and mouse[0]<630 and mouse[1]>90 and mouse[1]<310:
+        elif mouse[0]>465 and mouse[0]<580 and mouse[1]>90 and mouse[1]<310:
             selected=4
-        elif mouse[0]>590 and mouse[0]<720 and mouse[1]>90 and mouse[1]<310:
+        elif mouse[0]>590 and mouse[0]<705 and mouse[1]>90 and mouse[1]<310:
             selected=5
         else:
             selected=0

@@ -2,17 +2,7 @@
 Released December 30 2022 !
 
 Description:
-RESISTOR CALCULATOR, a pyinstaller .EXE application, is a Python GUI designed to calculate resistor values (3, 4, 5 bands). As of first release, more features + band counts will be implemented in the future!
-
-Installation:
-1. Install the github repository directly as a ZIP
-2. Unzip the ZIP folder in your directory
-3. The application, RESISTOR CALCULATOR.exe, is stored in the 'dict' folder
-4. Run the application!
-(Optional)
-5. For ease of access, a shortcut of the application was also created in the main directory
-6. Move the shortcut into your desktop
-7. Run the application from your desktop!  
+RESISTOR CALCULATOR is a Python GUI designed to calculate resistor values (3, 4, 5 bands). 
 
 Instructions to Use the Application:
 - In the menu, there are 3 different options for calculation: 3, 4, or 5 bands. 
@@ -22,6 +12,3 @@ Instructions to Use the Application:
 - Press the 'calculate' button to calculate the resistor values
 - Continue to change the colors if needed
 - Press 'return' to return to the menu and access other calculators
-
-If you encounter a bug or problem, please contact our developers via gmail.
-(wong.lt.natalie@gmail.com/341084358a@gmail.com)

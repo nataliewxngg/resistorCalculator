@@ -4,26 +4,31 @@ from src.displays import*
 
 # initiation
 pygame.init() # initializes all pygame modules
-win=pygame.display.set_mode((800,400))
+win = pygame.display.set_mode((800,400))
 pygame.display.set_caption('Resistor Calculator'.upper())
 
-#vars
-running=True
-selected=0
-white=(255,255,255)
+# variables
+running = True
+selected = 0
+white = (255,255,255)
 windowType = 0 # 0 means the main menu is open, 1 means selecting colour menu is open
-threeCalculated=fourCalculated=fiveCalculated=False
-ohm=""
-finalOhm=""
+
+threeCalculated = fourCalculated = fiveCalculated = False
+ohm = ""
+finalOhm = ""
 thirdBandColor3=fourthBandColor3=fifthBandColor3=white
 firstBandColor4=secondBandColor4=thirdBandColor4=fourthBandColor4=white
 firstBandColor5=secondBandColor5=thirdBandColor5=fourthBandColor5=fifthBandColor5=white
+
 listOfNormalColors=[(0,0,0),(92,64,51),(255,0,0),(255,165,0),(255,255,0),(0,255,0),(0,0,255),(221,160,221),(128,128,128),(255,255,255)]
 # black,brown,red,orange,yellow,green,blue,violet,grey,white
+
 listOfMultiplierColors=[(0,0,0),(92,64,51),(255,0,0),(255,165,0),(255,255,0),(0,255,0),(0,0,255),(221,160,221),(128,128,128),(255,255,255),(212,175,55),(192,192,192)]
 # black,brown,red,orange,yellow,green,blue,violet,grey,white,gold,silver
+
 listOfToleranceColors=[(92,64,51),(255,0,0),(255,165,0),(255,255,0),(0,255,0),(0,0,255),(221,160,221),(128,128,128),(212,175,55),(192,192,192),(255,255,255)]
 # brown,red,orange,yellow,green,blue,violet,grey,gold,silver
+
 dictOfToleranceColors={
     (92,64,51):"1%",
     (255,0,0):"2%",
@@ -54,14 +59,14 @@ def chooseBandsNum() : # check if one of the squares is clicked on
     global windowType
     windowType = 1
 
-def returnToMenu(): #check if a colour is chosen, or if the cancel button is pressed
+def returnToMenu(): # check if a colour is chosen, or if the cancel button is pressed
     mouse=pygame.mouse.get_pos()
     if mouse[0]>20 and mouse[0]<110 and mouse[1]>20 and mouse[1]<60: 
         global windowType
         windowType = 0
 
 def checkSelectedBand(chosen):
-    mouse=pygame.mouse.get_pos()
+    mouse = pygame.mouse.get_pos()
     global selected
 
     if chosen==3:

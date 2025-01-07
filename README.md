@@ -1,4 +1,4 @@
-<img src="assets/screenshots/menu.png" width="400"/> <img src="assets/screenshots/example.png" width="400"/> 
+<img src="assets/screenshots/menu.png" width="410"/> <img src="assets/screenshots/example.png" width="410"/> 
 
 <h1>Resistor Calculator</h1>
 <p>Natalie Wong | 2022</p>

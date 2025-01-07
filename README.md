@@ -1,5 +1,6 @@
 <div>
-  <img src="assets/screenshots/1.png" width="100%">
+  <img src="assets/screenshots/menu.png" width="100%">
+  <img src="assets/screenshots/example.png" width="100%">
 </div>
 
 <h1>Resistor Calculator</h1>
